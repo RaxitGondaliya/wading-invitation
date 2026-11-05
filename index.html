@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#4a0a12" />
+<meta name="description" content="Aarav & Diya — You are cordially invited to our Royal Wedding Celebration." />
+<title>Aarav &amp; Diya | Royal Wedding Invitation</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Great+Vibes&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="locked">
+
+<!-- =========================================================
+     SVG SPRITE (icons reused throughout)
+     ========================================================= -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="goldG" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff1c1"/><stop offset=".5" stop-color="#d4af37"/><stop offset="1" stop-color="#9c7a1e"/>
+    </linearGradient>
+    <radialGradient id="haloG">
+      <stop offset="0" stop-color="#ffd86b" stop-opacity=".55"/><stop offset="1" stop-color="#ffd86b" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <symbol id="i-lotus" viewBox="0 0 24 24"><g fill="currentColor"><path d="M12 4c2 2.5 2.6 5.6 0 9-2.6-3.4-2-6.5 0-9z"/><path d="M4 9c3 .2 5.6 2 8 5.5-4 .6-6.8-1.4-8-5.5z" opacity=".8"/><path d="M20 9c-3 .2-5.6 2-8 5.5 4 .6 6.8-1.4 8-5.5z" opacity=".8"/><path d="M5 16h14c-1.5 2.4-4 3.5-7 3.5S6.5 18.4 5 16z"/></g></symbol>
+  <symbol id="i-diya" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c2 2.3 2.2 4.4 0 6.5-2.2-2.1-2-4.2 0-6.5z" fill="currentColor"/><path d="M3 13h18c-1.2 4-4.6 6-9 6s-7.8-2-9-6z"/><path d="M9 19.5h6"/></g></symbol>
+  <symbol id="i-thali" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="6.5" stroke-dasharray="1.5 2"/><circle cx="9" cy="10" r="1.8" fill="currentColor"/><circle cx="15" cy="10" r="1.8" fill="currentColor"/><circle cx="12" cy="15" r="1.8" fill="currentColor"/></g></symbol>
+  <symbol id="i-gift" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><rect x="3.5" y="9" width="17" height="11" rx="1.5"/><path d="M2.5 9h19M12 9v11"/><path d="M12 9c-1.5-3.5-5.5-4.5-5.5-2S10 9 12 9zm0 0c1.5-3.5 5.5-4.5 5.5-2S14 9 12 9z"/></g></symbol>
+  <symbol id="i-dandiya" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 4l14 16M19 4L5 20"/><circle cx="12" cy="12" r="1.6" fill="currentColor"/><path d="M4 3.5l2 1M20 3.5l-2 1M4 20.5l2-1M20 20.5l-2-1" stroke-width="2.6"/></g></symbol>
+  <symbol id="i-dhol" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><ellipse cx="5" cy="12" rx="2.5" ry="6"/><ellipse cx="19" cy="12" rx="2.5" ry="6"/><path d="M5 6h14M5 18h14M8 6l3 12M13 6l3 12M8 18l3-12M13 18l3-12"/></g></symbol>
+  <symbol id="i-rings" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="14.5" r="5.5"/><circle cx="15" cy="14.5" r="5.5"/><path d="M7.5 6.5L9 4h3l1.5 2.5L10.5 9z" fill="currentColor"/></g></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></g></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></g></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4M12 13v4M10 15h4"/></g></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5.5A1.5 1.5 0 0 0 14.5 4h-9A1.5 1.5 0 0 0 4 5.5v9A1.5 1.5 0 0 0 5.5 16H8"/></g></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path fill="currentColor" d="M12 21s-7.5-4.6-9.6-9.4C.9 8 3 4 6.8 4c2.1 0 3.6 1.1 5.2 3 1.6-1.9 3.1-3 5.2-3C21 4 23.1 8 21.6 11.6 19.5 16.4 12 21 12 21z"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s1 2.6 1.1 2.7c.1.2 1.9 2.9 4.6 4.1 1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2l-.4-.2z"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" d="M8 5.5v13a1 1 0 0 0 1.5.9l10.2-6.5a1 1 0 0 0 0-1.8L9.5 4.6A1 1 0 0 0 8 5.5z"/></symbol>
+  <symbol id="i-pause" viewBox="0 0 24 24"><path fill="currentColor" d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M4 11l8-7 8 7v9a1 1 0 0 1-1 1h-4v-6H9v6H5a1 1 0 0 1-1-1z"/></g></symbol>
+  <symbol id="i-send" viewBox="0 0 24 24"><path fill="currentColor" d="M3 20.5l18-8.5L3 3.5 3 10l12 2-12 2z"/></symbol>
+  <symbol id="i-corner" viewBox="0 0 100 100"><g fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 96V30C4 15 15 4 30 4h66"/><path d="M12 96V36c0-13 11-24 24-24h60" opacity=".6"/><path d="M4 30c14 0 26 12 26 26M30 4c0 14 12 26 26 26" /><circle cx="30" cy="30" r="6" fill="currentColor"/><path d="M30 18c4 4 4 8 0 12-4-4-4-8 0-12zM18 30c4-4 8-4 12 0-4 4-8 4-12 0z" fill="currentColor" opacity=".7"/></g></symbol>
+  <symbol id="i-paisley" viewBox="0 0 60 100"><g fill="none" stroke="currentColor" stroke-width="1.6"><path d="M30 95C8 80 6 50 22 36c12-10 30-4 30 12 0 12-14 16-20 8"/><path d="M30 85C16 74 15 54 25 45c8-7 19-3 19 7" opacity=".7"/><circle cx="34" cy="50" r="4" fill="currentColor"/><path d="M30 10l4 8-4 8-4-8z" fill="currentColor"/></g></symbol>
+</svg>
+
+<!-- Falling petals container -->
+<div class="petals" id="petals" aria-hidden="true"></div>
+
+<!-- =========================================================
+     WELCOME SCREEN
+     ========================================================= -->
+<div id="welcome" role="dialog" aria-modal="true" aria-labelledby="welcomeTitle">
+  <svg class="mandala-bg js-mandala" viewBox="-100 -100 200 200" aria-hidden="true"></svg>
+  <svg class="welcome-corner tl"><use href="#i-corner"/></svg>
+  <svg class="welcome-corner tr"><use href="#i-corner"/></svg>
+  <svg class="welcome-corner bl"><use href="#i-corner"/></svg>
+  <svg class="welcome-corner br"><use href="#i-corner"/></svg>
+
+  <div class="welcome-inner">
+    <!-- Ganesha illustration -->
+    <svg class="ganesha" viewBox="0 0 200 230" role="img" aria-label="Lord Ganesha">
+      <circle cx="100" cy="112" r="100" fill="url(#haloG)"/>
+      <circle cx="100" cy="112" r="88" fill="none" stroke="url(#goldG)" stroke-width="1.2" stroke-dasharray="2 5"/>
+      <!-- Ears -->
+      <path d="M72 86 C42 58 12 76 16 110 C19 140 46 150 72 128 Z" fill="#fff3d6" stroke="url(#goldG)" stroke-width="3"/>
+      <path d="M128 86 C158 58 188 76 184 110 C181 140 154 150 128 128 Z" fill="#fff3d6" stroke="url(#goldG)" stroke-width="3"/>
+      <path d="M64 96 C46 84 30 94 32 112 C34 128 50 132 64 120" fill="none" stroke="#e8a0a8" stroke-width="2"/>
+      <path d="M136 96 C154 84 170 94 168 112 C166 128 150 132 136 120" fill="none" stroke="#e8a0a8" stroke-width="2"/>
+      <!-- Head -->
+      <path d="M68 76 C66 115 78 132 100 134 C122 132 134 115 132 76 Z" fill="#fff3d6" stroke="url(#goldG)" stroke-width="3"/>
+      <!-- Trunk (fill + side strokes) -->
+      <path d="M88 116 C86 150 92 178 112 188 C126 195 140 186 138 172 C136 162 124 164 126 172 C127 178 118 180 112 172 C104 160 110 140 112 116 Z" fill="#fff3d6"/>
+      <path d="M88 116 C86 150 92 178 112 188 C126 195 140 186 138 172 C136 162 124 164 126 172 C127 178 118 180 112 172 C104 160 110 140 112 116" fill="none" stroke="url(#goldG)" stroke-width="3" stroke-linecap="round"/>
+      <path d="M90 140 Q100 145 109 139 M92 154 Q101 158 108 152 M98 168 Q106 171 111 166" fill="none" stroke="url(#goldG)" stroke-width="1.5"/>
+      <!-- Tusk -->
+      <path d="M113 124 Q128 130 127 147 Q120 137 112 133 Z" fill="#fffdf6" stroke="url(#goldG)" stroke-width="2"/>
+      <!-- Crown -->
+      <path d="M70 70 L74 40 L86 50 L100 20 L114 50 L126 40 L130 70 Z" fill="url(#goldG)" stroke="#9c7a1e" stroke-width="1"/>
+      <circle cx="100" cy="17" r="5" fill="url(#goldG)"/>
+      <circle cx="74" cy="38" r="3" fill="url(#goldG)"/><circle cx="126" cy="38" r="3" fill="url(#goldG)"/>
+      <rect x="66" y="64" width="68" height="11" rx="5" fill="#8b1a2b" stroke="url(#goldG)" stroke-width="2"/>
+      <circle cx="82" cy="69.5" r="2.6" fill="#f3d98b"/><circle cx="100" cy="69.5" r="3.2" fill="#2d9c6a"/><circle cx="118" cy="69.5" r="2.6" fill="#f3d98b"/>
+      <path d="M100 30 L106 50 L100 58 L94 50 Z" fill="#8b1a2b"/>
+      <!-- Eyes -->
+      <path d="M79 97 Q87 89 95 97 Q87 102 79 97 Z" fill="#3d070f"/>
+      <path d="M105 97 Q113 89 121 97 Q113 102 105 97 Z" fill="#3d070f"/>
+      <!-- Tilak -->
+      <path d="M93 80 Q100 93 107 80" fill="none" stroke="#c0392b" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="100" cy="89" r="2.6" fill="#c0392b"/>
+      <!-- Modak & lotus base -->
+      <path d="M44 206 Q54 180 64 206 Z" fill="url(#goldG)"/>
+      <path d="M50 200 Q54 192 58 200" fill="none" stroke="#9c7a1e" stroke-width="1"/>
+      <path d="M70 214 Q100 196 130 214 Q100 226 70 214 Z" fill="#8b1a2b" stroke="url(#goldG)" stroke-width="1.5"/>
+      <path d="M80 212 Q90 198 100 210 Q110 198 120 212" fill="none" stroke="url(#goldG)" stroke-width="1.5"/>
+    </svg>
+
+    <div class="shloka-deva" lang="hi">॥ श्री गणेशाय नमः ॥</div>
+    <div class="shloka" id="welcomeTitle">Shree Ganeshay Namah</div>
+
+    <p class="welcome-msg">
+      With the divine blessings of <strong>Lord Ganesha</strong> and the love of our elders,
+      the <strong>Sharma</strong> &amp; <strong>Patel</strong> families joyfully welcome you
+      to celebrate the auspicious union of their children.
+    </p>
+
+    <button class="btn-open" id="openBtn" type="button">
+      <svg><use href="#i-lotus"/></svg> Open Invitation
+    </button>
+  </div>
+</div>
+
+<main>
+  <!-- =========================================================
+       HERO — COUPLE REVEAL & ROYAL ENTRY
+       ========================================================= -->
+  <section id="home" aria-label="Couple">
+    <div class="toran" aria-hidden="true"></div>
+    <svg class="mandala-bg js-mandala" viewBox="-100 -100 200 200" aria-hidden="true"></svg>
+    <div class="container hero-inner">
+      <div class="hero-pre reveal">The Royal Wedding of</div>
+
+      <div class="palace" id="palace">
+        <div class="door left" aria-hidden="true"><svg viewBox="0 0 60 100"><use href="#i-paisley"/></svg></div>
+        <div class="door right" aria-hidden="true"><svg viewBox="0 0 60 100" style="transform:scaleX(-1)"><use href="#i-paisley"/></svg></div>
+
+        <div class="arch">
+          <div class="couple-blessing">Together with their families</div>
+          <h1 class="names">
+            <span class="n gold-text">Aarav</span>
+            <span class="amp">&amp;</span>
+            <span class="n gold-text">Diya</span>
+          </h1>
+          <div class="divider" aria-hidden="true"><svg><use href="#i-lotus"/></svg></div>
+          <div class="parents">
+            <div><b>Groom</b>S/o Mr. Rajesh &amp; Mrs. Sunita Sharma</div>
+            <div><b>Bride</b>D/o Mr. Mahesh &amp; Mrs. Kavita Patel</div>
+          </div>
+        </div>
+      </div>
+
+      <p class="tap-hint reveal">request the honour of your presence</p>
+      <div class="scroll-cue" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       A DATE TO REMEMBER
+       ========================================================= -->
+  <section id="date" aria-labelledby="dateTitle">
+    <div class="container">
+      <div class="sec-head reveal">
+        <div class="eyebrow">Save the Date</div>
+        <h2 id="dateTitle">A Date to Remember</h2>
+        <div class="divider" aria-hidden="true"><svg><use href="#i-heart"/></svg></div>
+      </div>
+
+      <div class="heart-zone reveal" id="heartZone">
+        <button class="heart-btn" id="heartBtn" type="button" aria-label="Tap the heart to reveal the wedding dates" aria-controls="dates">
+          <svg><use href="#i-heart"/></svg>
+          <span>TAP ME</span>
+        </button>
+        <p class="hint">Tap the heart to unveil our special days</p>
+
+        <div class="dates" id="dates" aria-live="polite">
+          <div class="date-card frame">
+            <div class="dow">Friday</div>
+            <div class="day gold-text">11</div>
+            <div class="mon">DECEMBER 2026</div>
+            <span class="tag">Day 1 · Pre-Wedding</span>
+          </div>
+          <div class="date-card frame">
+            <div class="dow">Saturday</div>
+            <div class="day gold-text">12</div>
+            <div class="mon">DECEMBER 2026</div>
+            <span class="tag">Day 2 · Wedding</span>
+          </div>
+          <p class="venue-line">at <b>[Venue Name]</b>, [City], [State]</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       COUNTDOWN
+       ========================================================= -->
+  <section id="countdown" aria-labelledby="cdTitle">
+    <svg class="mandala-bg js-mandala" viewBox="-100 -100 200 200" aria-hidden="true"></svg>
+    <div class="container">
+      <div class="sec-head reveal">
+        <div class="eyebrow">Counting every moment</div>
+        <h2 id="cdTitle">Until We Say "I Do"</h2>
+      </div>
+      <div class="timer reveal" id="timer" role="timer" aria-live="off">
+        <div class="t-box"><div class="t-num" data-unit="d">00</div><div class="t-lbl">Days</div></div>
+        <div class="t-box"><div class="t-num" data-unit="h">00</div><div class="t-lbl">Hours</div></div>
+        <div class="t-box"><div class="t-num" data-unit="m">00</div><div class="t-lbl">Minutes</div></div>
+        <div class="t-box"><div class="t-num" data-unit="s">00</div><div class="t-lbl">Seconds</div></div>
+      </div>
+      <p class="cd-note reveal" id="cdNote">Hastmelap · Saturday, 12 December 2026 · 11:30 AM</p>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       EVENTS
+       ========================================================= -->
+  <section id="events" aria-labelledby="evTitle">
+    <div class="container">
+      <div class="sec-head reveal">
+        <div class="eyebrow">The Celebrations</div>
+        <h2 id="evTitle">Wedding Festivities</h2>
+        <div class="divider" aria-hidden="true"><svg><use href="#i-diya"/></svg></div>
+      </div>
+
+      <div class="day-tabs" role="tablist" aria-label="Event days">
+        <button class="day-tab" role="tab" id="tab-1" aria-controls="day-1" aria-selected="true">DAY 1<small>Fri, 11 Dec</small></button>
+        <button class="day-tab" role="tab" id="tab-2" aria-controls="day-2" aria-selected="false">DAY 2<small>Sat, 12 Dec</small></button>
+      </div>
+
+      <div class="timeline" id="day-1" role="tabpanel" aria-labelledby="tab-1"></div>
+      <div class="timeline" id="day-2" role="tabpanel" aria-labelledby="tab-2" hidden></div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       QUICK ACTIONS
+       ========================================================= -->
+  <section id="actions" aria-label="Quick actions">
+    <div class="container">
+      <div class="qa-grid">
+        <div class="qa frame reveal">
+          <h3>Never Miss a Moment</h3>
+          <p>Save the entire celebration to your Google Calendar.</p>
+          <a class="btn" id="mainCalBtn" target="_blank" rel="noopener"><svg><use href="#i-cal"/></svg>Add to Calendar</a>
+        </div>
+        <div class="qa frame reveal d1">
+          <h3>Share the Love</h3>
+          <p>Use our hashtag on all your photos &amp; stories.</p>
+          <div class="hashtag">
+            <code id="hashtag">#AaravWedsDiya</code>
+            <button class="btn gold" id="copyBtn" type="button" aria-label="Copy hashtag"><svg><use href="#i-copy"/></svg>Copy</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       RSVP & WISHES
+       ========================================================= -->
+  <section id="rsvp" aria-labelledby="rsvpTitle">
+    <div class="container">
+      <div class="sec-head reveal">
+        <div class="eyebrow">Kindly Respond</div>
+        <h2 id="rsvpTitle">RSVP &amp; Blessings</h2>
+        <div class="divider" aria-hidden="true"><svg><use href="#i-lotus"/></svg></div>
+      </div>
+
+      <form class="rsvp-card frame reveal" id="rsvpForm" novalidate>
+        <div class="field">
+          <label for="gName">Your Name</label>
+          <input class="input" id="gName" name="name" type="text" autocomplete="name" placeholder="e.g. Priya Mehta" required />
+          <div class="err" id="errName"></div>
+        </div>
+
+        <div class="field">
+          <label for="gPhone">Phone Number</label>
+          <input class="input" id="gPhone" name="phone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="10-digit mobile number" maxlength="14" required />
+          <div class="err" id="errPhone"></div>
+        </div>
+
+        <fieldset class="field">
+          <legend>You are with</legend>
+          <div class="team">
+            <label class="pill"><input type="radio" name="team" value="Bride" checked /><span>👰 Team Bride</span></label>
+            <label class="pill"><input type="radio" name="team" value="Groom" /><span>🤵 Team Groom</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="field">
+          <legend>Attending Events</legend>
+          <div class="pills" id="eventPills"></div>
+          <div class="err" id="errEvents"></div>
+        </fieldset>
+
+        <div class="field">
+          <label id="guestLbl">Number of Guests</label>
+          <div class="stepper" role="group" aria-labelledby="guestLbl">
+            <button type="button" data-step="-1" aria-label="Decrease guests">−</button>
+            <output id="guestCount" aria-live="polite">1</output>
+            <button type="button" data-step="1" aria-label="Increase guests">+</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="gWish">Your Wishes for the Couple</label>
+          <textarea class="input" id="gWish" name="wish" maxlength="300" placeholder="Share your blessings…"></textarea>
+        </div>
+
+        <div class="form-actions">
+          <button class="btn" type="submit"><svg><use href="#i-send"/></svg>Send RSVP via WhatsApp</button>
+        </div>
+      </form>
+
+      <div class="contact reveal">
+        <h3>For Any Queries, Reach Us</h3>
+        <div class="contact-grid" id="contacts"></div>
+      </div>
+
+      <div class="wishes" id="wishes" aria-live="polite"></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="toran" aria-hidden="true"></div>
+  <div class="script">Aarav &amp; Diya</div>
+  <p>Your presence is the greatest gift. We can't wait to celebrate with you!</p>
+  <small>WITH LOVE · SHARMA &amp; PATEL FAMILIES</small>
+</footer>
+
+<!-- Floating music control -->
+<button class="music-btn" id="musicBtn" type="button" aria-label="Play background music" aria-pressed="false">
+  <span class="ring" aria-hidden="true"></span>
+  <svg class="ic-play"><use href="#i-play"/></svg>
+  <svg class="ic-pause"><use href="#i-pause"/></svg>
+  <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+</button>
+
+<!-- Bottom navigation -->
+<nav class="bottom-nav" aria-label="Sections">
+  <a href="#home" class="active"><svg><use href="#i-home"/></svg>HOME</a>
+  <a href="#date"><svg><use href="#i-heart"/></svg>DATE</a>
+  <a href="#events"><svg><use href="#i-diya"/></svg>EVENTS</a>
+  <a href="#rsvp"><svg><use href="#i-send"/></svg>RSVP</a>
+</nav>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
