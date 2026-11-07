@@ -82,7 +82,7 @@
   </div>
 
   <div class="controls">
-    <button id="downloadBtn" type="button">⬇️ Download preview.png</button>
+    <button id="downloadBtn" type="button">⬇️ Download mayra-vivaan.png</button>
   </div>
 
 <script>
@@ -280,7 +280,7 @@ function drawCard() {
 document.getElementById('downloadBtn').addEventListener('click', () => {
   const canvas = document.getElementById('cardCanvas');
   const a = document.createElement('a');
-  a.download = 'preview.png';
+  a.download = 'mayra-vivaan.png';
   a.href = canvas.toDataURL('image/png');
   a.click();
 });
