@@ -5,10 +5,10 @@
      CONFIG — edit these to personalise the invitation
      ========================================================= */
   const CONFIG = {
-    couple: 'Aarav & Diya',
-    hashtag: '#AaravWedsDiya',
-    // Main wedding moment for the countdown (IST)
-    countdownTo: '2026-12-12T11:30:00+05:30',
+    couple: 'Mayra & Vivaan',
+    hashtag: '#MayraWedsVivaan',
+    // Main wedding moment for the countdown (IST: 10 Feb 2026, 9:00 AM)
+    countdownTo: '2026-02-10T09:00:00+05:30',
     // Optional: path/URL to an MP3 (e.g. 'music/shehnai.mp3').
     // Leave empty to use the built-in synthesized shehnai & tanpura melody.
     musicUrl: '',
@@ -23,22 +23,22 @@
     events: [
       { day: 1, part: 'Morning',   name: 'Ganesh Sthapan',   icon: 'i-diya',
         desc: 'We begin by invoking the blessings of Lord Ganesha for an auspicious and obstacle-free celebration.',
-        start: '2026-12-11T09:00:00+05:30', end: '2026-12-11T11:00:00+05:30', venue: '[Temple Hall], [Venue Name]' },
+        start: '2026-02-10T09:00:00+05:30', end: '2026-02-10T11:00:00+05:30', venue: '[Temple Hall], [Venue Name]' },
       { day: 1, part: 'Afternoon', name: 'Bhojan Samarambh', icon: 'i-thali',
         desc: 'A grand traditional feast shared with family & friends — come hungry!',
-        start: '2026-12-11T12:30:00+05:30', end: '2026-12-11T15:00:00+05:30', venue: '[Dining Hall], [Venue Name]' },
+        start: '2026-02-10T12:30:00+05:30', end: '2026-02-10T15:00:00+05:30', venue: '[Dining Hall], [Venue Name]' },
       { day: 1, part: 'Evening',   name: 'Mameru',           icon: 'i-gift',
         desc: "The bride's maternal family arrives bearing gifts and heartfelt blessings.",
-        start: '2026-12-11T17:00:00+05:30', end: '2026-12-11T19:00:00+05:30', venue: '[Courtyard], [Venue Name]' },
+        start: '2026-02-10T17:00:00+05:30', end: '2026-02-10T19:00:00+05:30', venue: '[Courtyard], [Venue Name]' },
       { day: 1, part: 'Night',     name: 'Dandiya Raas',     icon: 'i-dandiya',
         desc: 'Swirl, twirl and dance the night away to the beats of the dhol. Traditional attire encouraged!',
-        start: '2026-12-11T21:00:00+05:30', end: '2026-12-12T00:30:00+05:30', venue: '[Lawn], [Venue Name]' },
+        start: '2026-02-10T21:00:00+05:30', end: '2026-02-11T00:30:00+05:30', venue: '[Lawn], [Venue Name]' },
       { day: 2, part: 'Morning',   name: 'Jan Prastan',      icon: 'i-dhol',
         desc: 'The baraat sets off in royal style with music, dance and joyous celebration.',
-        start: '2026-12-12T09:00:00+05:30', end: '2026-12-12T10:30:00+05:30', venue: '[Groom\'s Residence / Start Point]' },
+        start: '2026-02-11T09:00:00+05:30', end: '2026-02-11T10:30:00+05:30', venue: '[Groom\'s Residence / Start Point]' },
       { day: 2, part: 'Afternoon', name: 'Hastmelap',        icon: 'i-rings',
         desc: 'The sacred union — the couple\'s hands are joined as they take their vows around the holy fire.',
-        start: '2026-12-12T11:30:00+05:30', end: '2026-12-12T14:00:00+05:30', venue: '[Mandap], [Venue Name]' },
+        start: '2026-02-11T11:30:00+05:30', end: '2026-02-11T14:00:00+05:30', venue: '[Mandap], [Venue Name]' },
     ],
   };
 
@@ -308,7 +308,10 @@
       navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
     });
   }, { rootMargin: '-45% 0px -50% 0px' });
-  ['home', 'date', 'countdown', 'events', 'actions', 'rsvp'].forEach(id => navIO.observe(document.getElementById(id)));
+  ['home', 'date', 'countdown', 'events', 'actions', 'contact'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) navIO.observe(el);
+  });
 
   /* =========================================================
      HEART → REVEAL DATES
@@ -386,16 +389,35 @@
     io.observe(card);
   });
 
-  const tabs = $$('.day-tab');
-  tabs.forEach(tab => tab.addEventListener('click', () => {
-    tabs.forEach(t => {
-      const on = t === tab;
-      t.setAttribute('aria-selected', on);
-      const panel = document.getElementById(t.getAttribute('aria-controls'));
-      panel.hidden = !on;
-      if (on) $$('.reveal', panel).forEach(c => c.classList.add('in'));
+  const dayTabs = $$('.day-tab');
+  dayTabs.forEach(tab => {
+    tab.addEventListener('click', e => {
+      e.preventDefault();
+      const targetSelector = tab.dataset.target;
+      const targetEl = targetSelector ? document.querySelector(targetSelector) : null;
+      if (targetEl) {
+        targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     });
-  }));
+  });
+
+  // Track active Day button as user scrolls through the stacked layout
+  const daySectionIO = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = '#' + entry.target.id;
+        dayTabs.forEach(tab => {
+          const match = tab.dataset.target === id;
+          tab.classList.toggle('active', match);
+          tab.setAttribute('aria-selected', match ? 'true' : 'false');
+        });
+      }
+    });
+  }, { rootMargin: '-20% 0px -60% 0px' });
+  ['day-1-section', 'day-2-section'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) daySectionIO.observe(el);
+  });
 
   /* =========================================================
      QUICK ACTIONS
@@ -423,85 +445,16 @@
   /* =========================================================
      CONTACTS
      ========================================================= */
-  $('#contacts').innerHTML = CONFIG.contacts.map(c => `
-    <div class="person frame">
-      <div><b>${esc(c.name)}</b><small>${esc(c.role)}</small></div>
-      <div class="acts">
-        <a class="round wa" href="https://wa.me/${c.phone}?text=${encodeURIComponent('Namaste! Regarding ' + CONFIG.couple + "'s wedding…")}" target="_blank" rel="noopener" aria-label="WhatsApp ${esc(c.name)}"><svg><use href="#i-wa"/></svg></a>
-        <a class="round call" href="tel:+${c.phone}" aria-label="Call ${esc(c.name)}"><svg><use href="#i-phone"/></svg></a>
-      </div>
-    </div>`).join('');
-
-  /* =========================================================
-     RSVP FORM + WISHES WALL
-     ========================================================= */
-  $('#eventPills').innerHTML = CONFIG.events.map(e =>
-    `<label class="pill"><input type="checkbox" name="events" value="${esc(e.name)}" checked /><span>${esc(e.name)}</span></label>`
-  ).join('') + `<label class="pill"><input type="checkbox" name="events" value="none" id="notAttending" /><span>😔 Unable to attend</span></label>`;
-
-  // "Unable to attend" is mutually exclusive with the event choices
-  $('#eventPills').addEventListener('change', e => {
-    const none = $('#notAttending');
-    if (e.target === none && none.checked) $$('input[name=events]').forEach(i => { if (i !== none) i.checked = false; });
-    else if (e.target !== none && e.target.checked) none.checked = false;
-  });
-
-  let guests = 1;
-  $$('.stepper button').forEach(b => b.addEventListener('click', () => {
-    guests = Math.min(15, Math.max(1, guests + Number(b.dataset.step)));
-    $('#guestCount').textContent = guests;
-  }));
-
-  const WKEY = 'aarav-diya-wishes';
-  const loadWishes = () => { try { return JSON.parse(localStorage.getItem(WKEY)) || []; } catch { return []; } };
-  function renderWishes() {
-    const list = loadWishes();
-    $('#wishes').innerHTML = list.length
-      ? `<div class="sec-head" style="margin:10px 0 4px"><div class="eyebrow">Blessings Received</div></div>` +
-        list.slice().reverse().map(w => `<div class="wish frame"><q>${esc(w.text)}</q><div class="by">— ${esc(w.name)} · Team ${esc(w.team)}</div></div>`).join('')
-      : '';
+  const contactsEl = $('#contacts');
+  if (contactsEl) {
+    contactsEl.innerHTML = CONFIG.contacts.map(c => `
+      <div class="person frame">
+        <div><b>${esc(c.name)}</b><small>${esc(c.role)}</small></div>
+        <div class="acts">
+          <a class="round wa" href="https://wa.me/${c.phone}?text=${encodeURIComponent('Namaste! Regarding ' + CONFIG.couple + "'s wedding…")}" target="_blank" rel="noopener" aria-label="WhatsApp ${esc(c.name)}"><svg><use href="#i-wa"/></svg></a>
+          <a class="round call" href="tel:+${c.phone}" aria-label="Call ${esc(c.name)}"><svg><use href="#i-phone"/></svg></a>
+        </div>
+      </div>`).join('');
   }
-  renderWishes();
-
-  $('#rsvpForm').addEventListener('submit', e => {
-    e.preventDefault();
-    const name = $('#gName').value.trim();
-    const phone = $('#gPhone').value.replace(/\D/g, '').replace(/^91(?=\d{10}$)/, '');
-    const team = $('input[name=team]:checked').value;
-    const chosen = $$('input[name=events]:checked').map(i => i.value);
-    const wish = $('#gWish').value.trim();
-
-    let ok = true;
-    const setErr = (id, msg) => { $(id).textContent = msg; if (msg) ok = false; };
-    setErr('#errName', name.length < 2 ? 'Please enter your name.' : '');
-    setErr('#errPhone', !/^[6-9]\d{9}$/.test(phone) ? 'Please enter a valid 10-digit mobile number.' : '');
-    setErr('#errEvents', chosen.length === 0 ? 'Please select at least one option.' : '');
-    if (!ok) { $('.err:not(:empty)').scrollIntoView({ behavior: 'smooth', block: 'center' }); return; }
-
-    const declining = chosen.includes('none');
-    const msg = [
-      `🙏 *RSVP — ${CONFIG.couple} Wedding*`,
-      ``,
-      `*Name:* ${name}`,
-      `*Phone:* ${phone}`,
-      `*Team:* ${team}`,
-      declining ? `*Attending:* Regretfully unable to attend` : `*Attending:* ${chosen.join(', ')}`,
-      declining ? '' : `*Guests:* ${guests}`,
-      wish ? `\n*Wishes:* ${wish}` : '',
-      ``,
-      CONFIG.hashtag,
-    ].filter(l => l !== '').join('\n');
-
-    if (wish) {
-      const list = loadWishes(); list.push({ name, team, text: wish });
-      try { localStorage.setItem(WKEY, JSON.stringify(list.slice(-20))); } catch {}
-      renderWishes();
-    }
-
-    toast(declining ? '💌 Thank you — you will be missed!' : '🎉 Thank you! Opening WhatsApp…');
-    setTimeout(() => window.open(`https://wa.me/${CONFIG.rsvpWhatsApp}?text=${encodeURIComponent(msg)}`, '_blank', 'noopener'), 600);
-    e.target.reset(); guests = 1; $('#guestCount').textContent = 1;
-    $$('input[name=events]').forEach(i => i.checked = i.value !== 'none');
-  });
 })();
 
