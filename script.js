@@ -109,11 +109,15 @@
   }
 
   /* =========================================================
-     MUSIC — MP3 (if provided) or synthesized Shehnai + Tanpura
+     MUSIC — MP3 (song.mp3 / song.m4a / song.wav) with Synth Fallback
      ========================================================= */
   const Music = (() => {
-    let playing = false, audioEl = null;
-    // --- Web Audio synth state ---
+    let playing = false;
+    let usingSynth = false;
+    const audioEl = $('#bgSong');
+    const TARGET_VOLUME = 0.65; // 65% volume
+
+    // --- Web Audio synth state for fallback ---
     let ctx, master, reverb, lead, lead2Ref, leadGain, vib, timer, nextNote = 0, noteIdx = 0, nextDrone = 0, droneIdx = 0;
 
     const SA = 261.63; // Sa = C4
@@ -147,7 +151,6 @@
       const wet = ctx.createGain(); wet.gain.value = .45;
       reverb.connect(wet).connect(master);
 
-      // Lead "shehnai": reedy sawtooth + square through a nasal band-pass, with vibrato
       lead = ctx.createOscillator(); lead.type = 'sawtooth';
       const lead2 = ctx.createOscillator(); lead2.type = 'square'; lead2.detune.value = 6;
       const mix2 = ctx.createGain(); mix2.gain.value = .35;
@@ -162,7 +165,7 @@
       leadGain.connect(master); leadGain.connect(reverb);
       lead.frequency.value = lead2.frequency.value = hz(0);
       lead.start(); lead2.start(); vib.start();
-      lead2Ref = lead2; // second reed voice, kept in pitch-sync with the lead
+      lead2Ref = lead2;
     }
 
     function pluck(freq, t) {
@@ -180,7 +183,6 @@
       const dur = beats * BEAT, g = leadGain.gain;
       if (semi === null) { g.setTargetAtTime(0, t, .08); return; }
       const f = hz(semi);
-      // gentle meend (glide) into the note — characteristic of Indian classical music
       [lead.frequency, lead2Ref.frequency].forEach(p => p.setTargetAtTime(f, t, .045));
       g.setTargetAtTime(.16, t, .05);
       g.setTargetAtTime(.11, t + dur * .6, .15);
@@ -202,10 +204,21 @@
     }
 
     async function play() {
-      if (CONFIG.musicUrl) {
-        if (!audioEl) { audioEl = new Audio(CONFIG.musicUrl); audioEl.loop = true; audioEl.volume = .6; }
-        try { await audioEl.play(); } catch (e) { return false; }
-      } else {
+      // 1. Try playing root audio file (song.mp3 / song.m4a / song.wav)
+      if (audioEl) {
+        try {
+          audioEl.volume = TARGET_VOLUME;
+          await audioEl.play();
+          playing = true;
+          usingSynth = false;
+          return true;
+        } catch (e) {
+          // If audio file is missing (404) or user blocked, fall back to synth
+        }
+      }
+
+      // 2. Synthesized Shehnai melody fallback
+      try {
         if (!ctx) initSynth();
         await ctx.resume();
         const now = ctx.currentTime;
@@ -213,13 +226,17 @@
         master.gain.cancelScheduledValues(now);
         master.gain.setTargetAtTime(.9, now, .4);
         clearInterval(timer); timer = setInterval(scheduler, 60); scheduler();
+        playing = true;
+        usingSynth = true;
+        return true;
+      } catch (err) {
+        return false;
       }
-      playing = true; return true;
     }
 
     function pause() {
-      if (audioEl) audioEl.pause();
-      if (ctx) {
+      if (audioEl && !audioEl.paused) audioEl.pause();
+      if (ctx && usingSynth) {
         const now = ctx.currentTime;
         master.gain.setTargetAtTime(0, now, .15);
         clearInterval(timer);
@@ -237,10 +254,23 @@
     musicBtn.setAttribute('aria-pressed', Music.playing);
     musicBtn.setAttribute('aria-label', Music.playing ? 'Pause background music' : 'Play background music');
   }
+
   musicBtn.addEventListener('click', async () => {
     Music.playing ? Music.pause() : await Music.play();
     syncMusicBtn();
   });
+
+  // Autoplay on first user interaction (touch, click, scroll, keydown)
+  const autoPlayEvents = ['click', 'touchstart', 'scroll', 'keydown'];
+  const startAudioOnInteraction = async () => {
+    if (!Music.playing) {
+      await Music.play();
+      syncMusicBtn();
+    }
+    autoPlayEvents.forEach(evt => window.removeEventListener(evt, startAudioOnInteraction, { passive: true }));
+  };
+  autoPlayEvents.forEach(evt => window.addEventListener(evt, startAudioOnInteraction, { passive: true, once: true }));
+
   // Pause when tab is hidden, resume when visible again
   let resumeOnShow = false;
   document.addEventListener('visibilitychange', async () => {

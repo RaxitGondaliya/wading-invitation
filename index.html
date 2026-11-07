@@ -347,8 +347,15 @@
   <small>WITH LOVE · SHARMA &amp; PATEL FAMILIES</small>
 </footer>
 
+<!-- Background Audio (place song.mp3 in root folder) -->
+<audio id="bgSong" loop preload="auto">
+  <source src="song.mp3" type="audio/mpeg" />
+  <source src="song.m4a" type="audio/mp4" />
+  <source src="song.wav" type="audio/wav" />
+</audio>
+
 <!-- Floating music control -->
-<button class="music-btn" id="musicBtn" type="button" aria-label="Play background music" aria-pressed="false">
+<button class="music-btn show" id="musicBtn" type="button" aria-label="Play background music" aria-pressed="false">
   <span class="ring" aria-hidden="true"></span>
   <svg class="ic-play"><use href="#i-play"/></svg>
   <svg class="ic-pause"><use href="#i-pause"/></svg>
