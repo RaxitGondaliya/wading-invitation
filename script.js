@@ -7,8 +7,8 @@
   const CONFIG = {
     couple: 'Mayra & Vivaan',
     hashtag: '#MayraWedsVivaan',
-    // Main wedding moment for the countdown (IST: 10 Feb 2026, 9:00 AM)
-    countdownTo: '2026-02-10T09:00:00+05:30',
+    // Main wedding moment for the countdown (IST: 10 Feb 2027, 9:00 AM)
+    countdownTo: '2027-02-10T09:00:00+05:30',
     // Optional: path/URL to an MP3 (e.g. 'music/shehnai.mp3').
     // Leave empty to use the built-in synthesized shehnai & tanpura melody.
     musicUrl: '',
@@ -23,22 +23,22 @@
     events: [
       { day: 1, part: 'Morning',   name: 'Ganesh Sthapan',   icon: 'i-diya',
         desc: 'We begin by invoking the blessings of Lord Ganesha for an auspicious and obstacle-free celebration.',
-        start: '2026-02-10T09:00:00+05:30', end: '2026-02-10T11:00:00+05:30', venue: '[Temple Hall], [Venue Name]' },
+        start: '2027-02-10T09:00:00+05:30', end: '2027-02-10T11:00:00+05:30', venue: '[Temple Hall], [Venue Name]' },
       { day: 1, part: 'Afternoon', name: 'Bhojan Samarambh', icon: 'i-thali',
         desc: 'A grand traditional feast shared with family & friends — come hungry!',
-        start: '2026-02-10T12:30:00+05:30', end: '2026-02-10T15:00:00+05:30', venue: '[Dining Hall], [Venue Name]' },
+        start: '2027-02-10T12:30:00+05:30', end: '2027-02-10T15:00:00+05:30', venue: '[Dining Hall], [Venue Name]' },
       { day: 1, part: 'Evening',   name: 'Mameru',           icon: 'i-gift',
         desc: "The bride's maternal family arrives bearing gifts and heartfelt blessings.",
-        start: '2026-02-10T17:00:00+05:30', end: '2026-02-10T19:00:00+05:30', venue: '[Courtyard], [Venue Name]' },
+        start: '2027-02-10T17:00:00+05:30', end: '2027-02-10T19:00:00+05:30', venue: '[Courtyard], [Venue Name]' },
       { day: 1, part: 'Night',     name: 'Dandiya Raas',     icon: 'i-dandiya',
         desc: 'Swirl, twirl and dance the night away to the beats of the dhol. Traditional attire encouraged!',
-        start: '2026-02-10T21:00:00+05:30', end: '2026-02-11T00:30:00+05:30', venue: '[Lawn], [Venue Name]' },
+        start: '2027-02-10T21:00:00+05:30', end: '2027-02-11T00:30:00+05:30', venue: '[Lawn], [Venue Name]' },
       { day: 2, part: 'Morning',   name: 'Jan Prastan',      icon: 'i-dhol',
         desc: 'The baraat sets off in royal style with music, dance and joyous celebration.',
-        start: '2026-02-11T09:00:00+05:30', end: '2026-02-11T10:30:00+05:30', venue: '[Groom\'s Residence / Start Point]' },
+        start: '2027-02-11T09:00:00+05:30', end: '2027-02-11T10:30:00+05:30', venue: '[Groom\'s Residence / Start Point]' },
       { day: 2, part: 'Afternoon', name: 'Hastmelap',        icon: 'i-rings',
         desc: 'The sacred union — the couple\'s hands are joined as they take their vows around the holy fire.',
-        start: '2026-02-11T11:30:00+05:30', end: '2026-02-11T14:00:00+05:30', venue: '[Mandap], [Venue Name]' },
+        start: '2027-02-11T11:30:00+05:30', end: '2027-02-11T14:00:00+05:30', venue: '[Mandap], [Venue Name]' },
     ],
   };
 
